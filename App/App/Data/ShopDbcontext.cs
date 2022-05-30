@@ -9,6 +9,8 @@ namespace App.Data
 {
     public class ShopDbContext : DbContext
     {
+        internal object products;
+
         // there should be a students table with student records in it.
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Category { get; set; }
