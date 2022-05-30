@@ -1,4 +1,6 @@
 using App.Data;
+using App.Models.Interfaces;
+using App.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,29 +31,39 @@ namespace App
                 // Our DATABASE_URL from js days
                 string connectionString = Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(connectionString);
-                services.AddMvc();
+
+                
+                //services.AddTransient<IProduct, ProductServices>();
+                //services.AddTransient<ICategory,CategoryServices>();
             });
+
+            services.AddMvc();
+            services.AddControllers();
         }
-    
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
             {
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-
-                app.UseRouting();
-
-                app.UseStaticFiles();
-
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
-                });
+                app.UseDeveloperExceptionPage();
             }
+
+            app.UseRouting();
+
+            app.UseStaticFiles();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+
+            //    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+            //});
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"); });
+
         }
     }
+}
 
 
