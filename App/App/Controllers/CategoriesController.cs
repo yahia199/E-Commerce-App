@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using App.Data;
 using App.Models;
+using App.Models.Interfaces;
 
 namespace App.Controllers
 {
@@ -14,27 +15,31 @@ namespace App.Controllers
     {
         private readonly ShopDbContext _context;
 
-        public CategoriesController(ShopDbContext context)
+        private readonly ICategory _catogry;
+
+        public CategoriesController(ShopDbContext context, ICategory category )
         {
             _context = context;
+            _catogry = category;
         }
 
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Category.ToListAsync());
+            var category = await _catogry.GetCategories();
+            return View(category);
         }
 
         // GET: Categories/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var category = await _catogry.GetCategory(id);
+
             if (category == null)
             {
                 return NotFound();
@@ -54,31 +59,31 @@ namespace App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id")] Category category)
+        public async Task<IActionResult> Create( Category category)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                await _catogry.Create(category);
+
+                return Content("You have successfully added a category --> Name : " + category.Name);
             }
             return View(category);
         }
 
         // GET: Categories/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.Category.FindAsync(id);
-            if (category == null)
+            var Getcategory = await _catogry.GetCategory(id);
+            if (Getcategory == null)
             {
                 return NotFound();
             }
-            return View(category);
+            return View(Getcategory);
         }
 
         // POST: Categories/Edit/5
@@ -86,7 +91,7 @@ namespace App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Id")] Category category)
+        public async Task<IActionResult> Edit(int id, Category category)
         {
             if (id != category.Id)
             {
@@ -95,29 +100,19 @@ namespace App.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(category);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CategoryExists(category.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+
+
+                await _catogry.UpdateCategory(id, category);
+
+                // return RedirectToAction(nameof(Index));
+                return Content("You have successfully updated a product --> Name : " + category.Name);
+
             }
             return View(category);
         }
 
         // GET: Categories/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+                public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {

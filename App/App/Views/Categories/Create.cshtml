@@ -1,33 +1,23 @@
-﻿@model App.Models.Category
+﻿
 
-@{
-    ViewData["Title"] = "Create";
-}
 
-<h1>Create</h1>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model App.Models.Category
 
-<h4>Category</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<h3>add a new Category</h3>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<form asp-controller="Categories" asp-action="Create" method="post">
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <label>
+        <span>Name</span>
+
+        <input asp-for="@Model.Name" />
+
+    </label>
+
+   
+    <button type="submit">submit</button>
+</form>
+
+<div asp-validation-summary="All"></div>
+
