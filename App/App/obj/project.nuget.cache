@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ZYSA1E47BPLGPziRuSM/el1cLwea5IcPn4goMBCKQtHCciDTE+ZkY8wbk8n46CrHnUuY2qj0qeOHePP2lOXDQ==",
+  "dgSpecHash": "RUYnA1vtKOtodgfoZwNX39gYNo/Tmk2PKgG6YxCZiawy1Jog3Cayp1/SnIXi1ylU4y/aRPto7H46d0KeTzgrmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LEGION\\Source\\Repos\\E-Commerce-App\\App\\App\\App.csproj",
+  "projectFilePath": "C:\\Users\\LEGION\\source\\repos\\E-Commerce-App\\App\\App\\App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LEGION\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
