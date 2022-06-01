@@ -10,7 +10,7 @@ namespace App.Models.Interfaces
         Task<Product> Create(Product product);
         Task<Product> GetProduct(int id);
         Task<List<Product>> GetProducts();
-        Task<Product> UpdateProduct(int id, Product product);
+        Task<Product> UpdateProduct(Category category, Product product);
         Task Delete(int id);
 
     }

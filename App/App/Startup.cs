@@ -26,6 +26,8 @@ namespace App
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IProduct, ProductServices>();
+            services.AddTransient<ICategory, CategoryServices>();
             services.AddDbContext<ShopDbContext>(options =>
             {
                 // Our DATABASE_URL from js days
@@ -33,8 +35,6 @@ namespace App
                 options.UseSqlServer(connectionString);
 
                 
-                //services.AddTransient<IProduct, ProductServices>();
-                //services.AddTransient<ICategory,CategoryServices>();
             });
 
             services.AddMvc();

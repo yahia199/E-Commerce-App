@@ -27,7 +27,7 @@ namespace App.Models.Services
 
         public async Task Delete(int id)
         {
-            Product product = await GetProduct(id);
+            Product product = await _context.Products.FindAsync(id);
             _context.Entry(product).State = EntityState.Deleted;
 
             await _context.SaveChangesAsync();
@@ -45,8 +45,10 @@ namespace App.Models.Services
             return Products;
         }
 
-        public async Task<Product> UpdateProduct(int id, Product product)
+        public async Task<Product> UpdateProduct(Category category, Product product)
         {
+            product.Category = category;
+
             _context.Entry(product).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return product;
