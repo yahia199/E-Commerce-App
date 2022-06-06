@@ -37,14 +37,33 @@ namespace App.Models.Services
 
         public async Task<List<Category>> GetCategories()
         {
-            var Categories = await _context.Category.ToListAsync();
-            return Categories;
+            return await _context.categories.Select(c => new Category
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Products = c.Products.Select(a => new Product
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    Price = a.Price
+                }).ToList()
+            }).ToListAsync();
         }
 
         public async Task<Category> GetCategory(int id)
         {
-            Category Category = await _context.Category.FindAsync(id);
-            return Category;
+            return await _context.categories.Select(c => new Category
+            {
+                 Id = c.Id,
+                 Name = c.Name,
+                 Products = c.Products.Select(a => new Product 
+                 {
+                     Id = a.Id,
+                     Name = a.Name,
+                     Price = a.Price
+                 }).ToList()
+            }).FirstOrDefaultAsync(x => x.Id==id);
+            
         }
 
         public async Task<Category> UpdateCategory(int id, Category category)

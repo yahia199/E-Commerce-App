@@ -17,7 +17,6 @@ namespace App.Controllers
         private readonly IProduct _product;
 
         private readonly ShopDbContext _context;
-        
 
         public ProductsController(IProduct product, ShopDbContext context )
         {
@@ -37,7 +36,7 @@ namespace App.Controllers
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
@@ -107,11 +106,10 @@ namespace App.Controllers
 
             if (ModelState.IsValid)
             {
-                var category = await _context.Category.FindAsync(id);
+                var category = await _context.categories.FindAsync(id);
                
                    await _product.UpdateProduct( category, product);
 
-                // return RedirectToAction(nameof(Index));
                 return Content("You have successfully updated a product --> Name : " + product.Name);
 
             }
@@ -120,20 +118,9 @@ namespace App.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var product = await _context.Products
-            //    .Include(p => p.Category)
-            //    .FirstOrDefaultAsync(m => m.Id == id);
-            //if (product == null)
-            //{
-            //    return NotFound();
-            //}
+            await _product.GetProduct(id);
 
             return View();
         }
@@ -143,21 +130,14 @@ namespace App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //var product = await _context.Products.FindAsync(id);
-            //_context.Products.Remove(product);
-            //await _context.SaveChangesAsync();
-            //Product product = await _product.GetProduct(id);
+         
 
             await _product.Delete(id);
              return RedirectToAction(nameof(Index));
-           // return Content("You have successfully deleted a product ");
 
         }
 
-        //private bool ProductExists(int id)
-        //{
-        //    return _context.Products.Any(e => e.Id == id);
-        //}
+      
     }
 }
 

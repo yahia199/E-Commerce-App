@@ -1,4 +1,6 @@
-﻿using App.Models;
+﻿using App.Auth.Model;
+using App.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace App.Data
 {
-    public class ShopDbContext : DbContext
+    public class ShopDbContext : IdentityDbContext<ApplicationUser>
     {
-        internal object products;
 
         // there should be a students table with student records in it.
         public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Category { get; set; }
+        public DbSet<Category> categories { get; set; }
 
         public ShopDbContext(DbContextOptions options) : base(options)
         {
@@ -33,7 +34,7 @@ namespace App.Data
               new Category { Id = 6, Name = "Furniture" });
 
             modelBuilder.Entity<Product>().HasData(
-              //  new Product { Id = 1, Name = "Iphone13", Price = 1000, Description = "Test 1", CategoryId = 1 },
+                //  new Product { Id = 1, Name = "Iphone13", Price = 1000, Description = "Test 1", CategoryId = 1 },
                 new Product { Id = 2, Name = "Toy", Price = 100, Description = "Test 2", CategoryId = 2 },
                 new Product { Id = 3, Name = "Tshirt", Price = 10, Description = "Test 3", CategoryId = 3 },
                 new Product { Id = 4, Name = "Shoes", Price = 20, Description = "Test 4", CategoryId = 4 });

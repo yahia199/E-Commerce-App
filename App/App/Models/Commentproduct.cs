@@ -7,10 +7,10 @@ namespace App.Models
 {
     public class Commentproduct
     {
-        public Product Product { get; set; }
         public int ProductId { get; set; }
+        public Product Product { get; set; }
 
-        public Comment Comment { get; set; }
         public int CommentId { get; set; }
+        public Comment Comment { get; set; }
     }
 }
