@@ -54,6 +54,14 @@ namespace App
             services.AddAuthorization();
             services.AddTransient<IUserService, UserService>();
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Administrator", policy => policy.RequireClaim("permissions", "Administrator"));
+                options.AddPolicy("Editor", policy => policy.RequireClaim("permissions", "Editor"));
+
+            });
+
+
 
 
             services.AddMvc();
@@ -70,6 +78,8 @@ namespace App
             }
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseStaticFiles();
 

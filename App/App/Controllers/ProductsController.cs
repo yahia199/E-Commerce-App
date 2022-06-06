@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using App.Data;
 using App.Models;
 using App.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.Controllers
 {
@@ -52,6 +53,8 @@ namespace App.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Policy = "Administrator")]
+
         public IActionResult Create()
         {
             return View();
@@ -76,7 +79,9 @@ namespace App.Controllers
 
 
 
-       // GET: Products/Edit/5
+        // GET: Products/Edit/5
+        [Authorize(Policy = "Editor")]
+
         public async Task<IActionResult> Edit(int id)
         {
             if (id == null)
@@ -118,6 +123,8 @@ namespace App.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Policy = "Administrator")]
+
         public async Task<IActionResult> Delete(int id)
         {
             await _product.GetProduct(id);
