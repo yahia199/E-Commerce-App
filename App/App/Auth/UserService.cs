@@ -33,6 +33,8 @@ namespace App.Auth
 
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "Administrator");
+
                 return new UserDto
                 {
                     Username = user.UserName,

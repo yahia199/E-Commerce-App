@@ -1,5 +1,6 @@
 ﻿using App.Auth.Model;
 using App.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -39,6 +40,31 @@ namespace App.Data
                 new Product { Id = 3, Name = "Tshirt", Price = 10, Description = "Test 3", CategoryId = 3 },
                 new Product { Id = 4, Name = "Shoes", Price = 20, Description = "Test 4", CategoryId = 4 });
 
+            SeedRole(modelBuilder, "Administrator", "Administrator", "Editor");
+            SeedRole(modelBuilder, "Editor", "Editor");
+
+        }
+        private int nextId = 1; 
+        private void SeedRole(ModelBuilder modelBuilder, string roleName, params string[] permissions)
+        {
+            var role = new IdentityRole
+            {
+                Id = roleName.ToLower(),
+                Name = roleName,
+                NormalizedName = roleName.ToUpper(),
+                ConcurrencyStamp = Guid.Empty.ToString()
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(role);
+            
+            var roleClaims = permissions.Select(permission =>
+            new IdentityRoleClaim<string>
+            {
+                Id = nextId++,
+                RoleId = role.Id,
+                ClaimType = "permissions", 
+                ClaimValue = permission
+            }).ToArray();
+            modelBuilder.Entity<IdentityRoleClaim<string>>().HasData(roleClaims);
         }
     }
 }

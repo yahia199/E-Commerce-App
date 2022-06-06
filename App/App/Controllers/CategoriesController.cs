@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using App.Data;
 using App.Models;
 using App.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace App.Controllers
 {
@@ -49,6 +50,8 @@ namespace App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Administrator")]
+
         public async Task<IActionResult> Create(Category category)
         {
             if (ModelState.IsValid)
@@ -61,6 +64,8 @@ namespace App.Controllers
         }
 
         // GET: Categories/Edit/5
+        [Authorize(Policy = "Editor")]
+
         public async Task<IActionResult> Edit(int id)
         {
             if (id == null)
@@ -102,6 +107,8 @@ namespace App.Controllers
         }
 
         // GET: Categories/Delete/5
+        [Authorize(Policy = "Administrator")]
+
         public async Task<IActionResult> Delete(int id)
         {
 
