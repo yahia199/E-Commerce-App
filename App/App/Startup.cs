@@ -1,9 +1,13 @@
+using App.Auth;
+using App.Auth.Interface;
+using App.Auth.Model;
 using App.Data;
 using App.Models.Interfaces;
 using App.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +40,21 @@ namespace App
 
                 
             });
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<ShopDbContext>();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/auth/index";
+            });
+
+            services.AddAuthentication();
+            services.AddAuthorization();
+            services.AddTransient<IUserService, UserService>();
+
+
 
             services.AddMvc();
             services.AddControllers();

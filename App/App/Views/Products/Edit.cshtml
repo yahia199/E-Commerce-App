@@ -1,55 +1,55 @@
-﻿@*@model App.Models.Product
-
-    @{
-        ViewData["Title"] = "Edit";
-    }
-
-    <h1>Edit</h1>
-
-    <h4>Product</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Edit">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Price" class="control-label"></label>
-                    <input asp-for="Price" class="form-control" />
-                    <span asp-validation-for="Price" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control" />
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CategoryId" class="control-label"></label>
-                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-                    <span asp-validation-for="CategoryId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }*@
-
+﻿@model App.Models.Product
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model App.Models.Product
+
+
+@*@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
+
 
 <h3>update a product</h3>
 
@@ -58,42 +58,55 @@
     <label>
 
         <span>Category ID</span>
-        <input  asp-for="@Model.Category.Id" />
+        <input asp-for="@Model.Category.Id" />
 
-       
 
-    </label>
-    <label>
-
-        @*<span>id</span>*@
-        
-
-        <input hidden asp-for="@Model.Id" />
 
     </label>
+    <div class="form-group">
 
-    <label>
-        <span>Description</span>
+        <label>
 
-        <input asp-for="@Model.Description" />
+            <span>id</span>
 
-    </label>
+            <input hidden asp-for="@Model.Id" />
 
-    <label>
-        <span>Name</span>
+        </label>
+    </div>
 
-        <input asp-for="@Model.Name" />
+    <div class="form-group">
+        <label>
+            <span>Description</span>
 
-    </label>
+            <input asp-for="@Model.Description" />
 
-    <label>
-        <span>Price</span>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <span>Name</span>
 
-        <input asp-for="@Model.Price" />
+            <input asp-for="@Model.Name" />
 
-    </label>
-    <button type="submit">update</button>
+        </label>
+    </div>
+
+
+    <div class="form-group">
+        <label>
+            <span>Price</span>
+
+            <input asp-for="@Model.Price" />
+
+        </label>
+    </div>
+
+    <div class="form-group">
+
+        <button class="btn btn-outline-primary" type="submit">update</button>
+
+        <a asp-action="Index" class="btn btn-outline-warning">Back to list</a>
+    </div>
 </form>
 
 <div asp-validation-summary="All"></div>
-

@@ -17,7 +17,7 @@ namespace App.Controllers
 
         private readonly ICategory _catogry;
 
-        public CategoriesController(ShopDbContext context, ICategory category )
+        public CategoriesController(ShopDbContext context, ICategory category)
         {
             _context = context;
             _catogry = category;
@@ -33,19 +33,9 @@ namespace App.Controllers
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            Category Category = await _catogry.GetCategory(id);
 
-            var category = await _catogry.GetCategory(id);
-
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
+            return View(Category);
         }
 
         // GET: Categories/Create
@@ -59,7 +49,7 @@ namespace App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Category category)
+        public async Task<IActionResult> Create(Category category)
         {
             if (ModelState.IsValid)
             {
@@ -112,37 +102,24 @@ namespace App.Controllers
         }
 
         // GET: Categories/Delete/5
-                public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
+            await _catogry.GetCategory(id);
 
-            return View(category);
+            return View();
         }
 
         // POST: Categories/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Category.FindAsync(id);
-            _context.Category.Remove(category);
-            await _context.SaveChangesAsync();
+
+            await _catogry.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryExists(int id)
-        {
-            return _context.Category.Any(e => e.Id == id);
-        }
+     
     }
 }
