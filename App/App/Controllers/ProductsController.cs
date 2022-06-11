@@ -9,20 +9,27 @@ using App.Data;
 using App.Models;
 using App.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
+using Azure.Storage.Blobs;
+using System.Configuration;
+using Azure.Storage.Blobs.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace App.Controllers
 {
     public class ProductsController : Controller
     {
-       
+        private readonly IConfiguration Configuration;
+
         private readonly IProduct _product;
 
         private readonly ShopDbContext _context;
 
-        public ProductsController(IProduct product, ShopDbContext context )
+        public ProductsController(IProduct product, ShopDbContext context, IConfiguration config)
         {
             _product = product;
             _context = context;
+            Configuration = config;
         }
 
 
@@ -62,18 +69,36 @@ namespace App.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create(Product product, IFormFile file)
         {
+            BlobContainerClient container = new BlobContainerClient(Configuration.GetConnectionString("AzureBlob"), "folder");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
+            {
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
+            }
+            product.ImageUrl = blob.Uri.ToString();
+
             if (ModelState.IsValid)
             {
 
                  await _product.Create(product);
-            
-                 return Content("You have successfully added a product --> Name : "+product.Name);
-              
+
+                return RedirectToAction("Index");
+
 
             }
-           
+            stream.Close();
+
             return View(product);
         }
 
@@ -102,8 +127,24 @@ namespace App.Controllers
         // POST: Products/Edit/5
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit( int id , Product product)
+        public async Task<IActionResult> Edit( int id , Product product, IFormFile file)
         {
+            BlobContainerClient container = new BlobContainerClient(Configuration.GetConnectionString("AzureBlob"), "folder");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
+            {
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
+            }
+            product.ImageUrl = blob.Uri.ToString();
             if (id != product.Id)
             {
                 return NotFound();
@@ -115,9 +156,10 @@ namespace App.Controllers
                
                    await _product.UpdateProduct( category, product);
 
-                return Content("You have successfully updated a product --> Name : " + product.Name);
+                return RedirectToAction("Index");
 
             }
+            stream.Close();
 
             return View(product);
         }

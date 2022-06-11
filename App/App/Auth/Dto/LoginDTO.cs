@@ -10,7 +10,7 @@ namespace App.Auth.Dto
     {
         [Required]
         public string UserName { get; set; }
-        [Required]
+        [Required, DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
