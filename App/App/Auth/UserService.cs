@@ -85,5 +85,10 @@ namespace App.Auth
                 Username = user.UserName
             };
         }
+        public async Task Logout()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
     }
 }
