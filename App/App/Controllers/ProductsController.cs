@@ -67,6 +67,7 @@ namespace App.Controllers
             return View();
         }
 
+      
 
         [HttpPost]
         public async Task<IActionResult> Create(Product product, IFormFile file)

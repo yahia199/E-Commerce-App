@@ -1,0 +1,69 @@
+﻿@page
+@model App.Pages.Account.RegisterModel
+@{
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<div style="padding:20px"></div>
+<form method="post">
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+
+        <div>
+            <lable asp-for="RegisterDto.UserName">UserName</lable>
+        </div>
+        <div>
+
+            <input type="text" asp-for="RegisterDto.UserName" />
+
+        </div>
+        <span asp-validation-for="RegisterDto.UserName"></span>
+
+    </div>
+
+    <div>
+
+        <div>
+            <lable asp-for="RegisterDto.Password">Password</lable>
+        </div>
+
+        <div>
+
+            <input type="password" asp-for="RegisterDto.Password" />
+
+        </div>
+        <span asp-validation-for="RegisterDto.Password"></span>
+
+    </div>
+
+    <div>
+
+        <div>
+            <lable asp-for="RegisterDto.Email">Email</lable>
+        </div>
+
+        <div>
+
+            <input type="email" asp-for="RegisterDto.Email" />
+
+        </div>
+        <span asp-validation-for="RegisterDto.Email"></span>
+
+    </div>
+
+    <div>
+
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+
+
+
+    </div>
+
+
+</form>

@@ -1,0 +1,28 @@
+﻿@page
+@model App.Pages.UserCategories.IndexModel
+@{
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<h1>Categories</h1>
+
+
+@if (Model.Categories != null)
+{
+    @foreach (var category in Model.Categories)
+    {
+        
+        <div style="border:groove ">
+
+            <h3 style="border:groove; display:inline-block">  <a style="text-decoration:none" href="/UserCategories/List?id=@category.Id">@category.Name </a>  </h3>
+           
+
+
+
+        </div>
+
+
+    }
+}

@@ -1,0 +1,19 @@
+﻿@page
+@model App.Pages.UserCategories.ListModel
+@{
+}
+@if(Model.category != null)
+            {
+                @foreach(var product in Model.category.Products)
+                {
+                    <div style="border:groove ">
+                        <img style="width: 100px; display: inline-block" src="https://m.media-amazon.com/images/I/717gOL8OVVL._AC_SX466_.jpg" />
+                        <h3 style="border:groove; display:inline-block">Name: @product.Name</h3>
+                        <h3 style="border: groove; display: inline-block">Description: @product.Description</h3>
+                        <h3 style="border: groove; display: inline-block">Price: @product.Price</h3>
+
+                        <button type="submit">Add To Cart</button>
+
+                    </div>
+                }
+            }

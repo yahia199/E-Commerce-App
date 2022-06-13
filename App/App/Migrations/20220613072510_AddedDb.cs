@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace App.Migrations
 {
-    public partial class Adddata : Migration
+    public partial class AddedDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -173,6 +173,7 @@ namespace App.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -221,12 +222,12 @@ namespace App.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
+                columns: new[] { "Id", "CategoryId", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 2, 2, "Test 2", "Toy", 100 },
-                    { 3, 3, "Test 3", "Tshirt", 10 },
-                    { 4, 4, "Test 4", "Shoes", 20 }
+                    { 2, 2, "Test 2", null, "Toy", 100 },
+                    { 3, 3, "Test 3", null, "Tshirt", 10 },
+                    { 4, 4, "Test 4", null, "Shoes", 20 }
                 });
 
             migrationBuilder.CreateIndex(

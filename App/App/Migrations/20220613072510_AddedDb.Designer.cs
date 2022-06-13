@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20220611092837_AddImage")]
-    partial class AddImage
+    [Migration("20220613072510_AddedDb")]
+    partial class AddedDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

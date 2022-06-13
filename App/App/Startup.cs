@@ -61,6 +61,7 @@ namespace App
 
             });
 
+           
 
 
 
@@ -89,7 +90,12 @@ namespace App
             //    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             //});
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"); });
+            app.UseEndpoints(endpoints => 
+            {
+                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"); 
+
+            });
 
         }
     }
