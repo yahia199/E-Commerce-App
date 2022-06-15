@@ -25,24 +25,27 @@
                         <li class="nav-item">
                             <a class="badge text-success" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                       
+
                         <li class="nav-item">
                             <a class="badge text-success" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="badge text-success" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                        <li class="nav-item">
+                            <a class="badge text-success" href="/CartRazor">My Cart</a>
                         </li>
+
                         @if (!User.Identity.IsAuthenticated)
                         {
-                    <li class="nav-item">
-                        <a class="badge text-success" asp-area="" asp-controller="Auth" asp-action="SignUp">SignUp</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="badge text-success" asp-area="" asp-controller="Auth" asp-action="SignUp">SignUp</a>
+                        </li>
  }
                         else
                         {
-                            <li class="nav-item">
-                                <a class="badge text-danger" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="badge text-danger" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                        </li>
 }
 
                     </ul>

@@ -14,6 +14,7 @@ using Azure.Storage.Blobs;
 using System.Configuration;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Http;
+using App.Models.ViweModel;
 
 namespace App.Controllers
 {
@@ -185,8 +186,35 @@ namespace App.Controllers
              return RedirectToAction(nameof(Index));
 
         }
+     [Authorize]
+        public async Task<IActionResult> AddProductToCart(int id)
+        {
+            // this is used to save the previous URL
+            string urlAnterior = Request.Headers["Referer"].ToString();
 
-      
+
+            Product productInDb = await _product.GetProduct(id);
+
+            string product = productInDb.Name;
+
+            CookieOptions cookieOptions = new CookieOptions();
+            cookieOptions.Expires = new DateTimeOffset(DateTime.Now.AddDays(7));
+
+            if (HttpContext.Request.Cookies["CartCookie"] == null)
+            {
+                HttpContext.Response.Cookies.Append("CartCookie", product, cookieOptions);
+            }
+            else
+            {
+                string cookie = HttpContext.Request.Cookies["CartCookie"] + "," + product;
+                HttpContext.Response.Cookies.Append("CartCookie", cookie, cookieOptions);
+            }
+
+            return Redirect(urlAnterior);
+        }
+
+
+
     }
 }
 

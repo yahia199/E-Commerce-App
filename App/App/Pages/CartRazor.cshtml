@@ -1,0 +1,18 @@
+﻿@page
+@model App.Pages.CartRazorModel
+@{
+}
+@if (Model.Products == null)
+{
+<p>The Cart is empty...</p> }
+            else
+            {
+                string[] products = Model.Products.Split(",");
+<ul>
+    @foreach (var product in products)
+    {
+<li>
+    @product
+</li>}
+</ul>}
+
