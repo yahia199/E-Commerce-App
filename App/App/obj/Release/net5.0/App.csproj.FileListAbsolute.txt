@@ -357,3 +357,4 @@ C:\Users\LEGION\source\repos\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pag
 C:\Users\LEGION\source\repos\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pages\UserCategories\List.cshtml.g.cs
 C:\Users\LEGION\source\repos\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pages\Account\login.cshtml.g.cs
 C:\Users\LEGION\source\repos\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pages\Account\Register.cshtml.g.cs
+C:\Users\LEGION\source\repos\E-Commerce-App\App\App\bin\Release\net5.0\Castle.Core.dll

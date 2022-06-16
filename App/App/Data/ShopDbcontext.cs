@@ -17,6 +17,8 @@ namespace App.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> categories { get; set; }
 
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
         public ShopDbContext(DbContextOptions options) : base(options)
         {
 

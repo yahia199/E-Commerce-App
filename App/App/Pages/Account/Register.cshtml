@@ -7,51 +7,51 @@
 
 
 <div style="padding:20px"></div>
-<form method="post">
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
 
     <div asp-validation-summary="ModelOnly"></div>
 
     <div>
 
         <div>
-            <lable asp-for="RegisterDto.UserName">UserName</lable>
+            <lable asp-for="Input.Name">UserName</lable>
         </div>
         <div>
 
-            <input type="text" asp-for="RegisterDto.UserName" />
+            <input type="text" asp-for="Input.Name" />
 
         </div>
-        <span asp-validation-for="RegisterDto.UserName"></span>
+        <span asp-validation-for="Input.Name"></span>
 
     </div>
 
     <div>
 
         <div>
-            <lable asp-for="RegisterDto.Password">Password</lable>
+            <lable asp-for="Input.Password">Password</lable>
         </div>
 
         <div>
 
-            <input type="password" asp-for="RegisterDto.Password" />
+            <input type="password" asp-for="Input.Password" />
 
         </div>
-        <span asp-validation-for="RegisterDto.Password"></span>
+        <span asp-validation-for="Input.Password"></span>
 
     </div>
 
     <div>
 
         <div>
-            <lable asp-for="RegisterDto.Email">Email</lable>
+            <lable asp-for="Input.Email">Email</lable>
         </div>
 
         <div>
 
-            <input type="email" asp-for="RegisterDto.Email" />
+            <input type="email" asp-for="Input.Email" />
 
         </div>
-        <span asp-validation-for="RegisterDto.Email"></span>
+        <span asp-validation-for="Input.Email"></span>
 
     </div>
 
@@ -67,3 +67,7 @@
 
 
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}  
