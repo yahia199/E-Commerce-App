@@ -32,6 +32,9 @@ namespace App
         {
             services.AddTransient<IProduct, ProductServices>();
             services.AddTransient<ICategory, CategoryServices>();
+            services.AddTransient<IOrder, OrdersService>();
+            services.AddScoped<ShoppingCart>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<ShopDbContext>(options =>
             {
                 // Our DATABASE_URL from js days
@@ -49,7 +52,8 @@ namespace App
             {
                 options.AccessDeniedPath = "/auth/index";
             });
-
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddAuthentication();
             services.AddAuthorization();
             services.AddTransient<IUserService, UserService>();
@@ -78,6 +82,7 @@ namespace App
             }
 
             app.UseRouting();
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -90,7 +95,7 @@ namespace App
             //});
 
             app.UseEndpoints(endpoints => {
-                endpoints.MapRazorPages();
+               
 
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}"); });
 

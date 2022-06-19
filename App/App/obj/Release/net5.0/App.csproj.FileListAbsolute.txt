@@ -178,3 +178,7 @@ C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\bin\Release\net5.0\runti
 C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pages\CartRazor.cshtml.g.cs
 C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pages\categories\Detail.cshtml.g.cs
 C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Pages\categories\Index.cshtml.g.cs
+C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Views\Orders\CompleteOrder.cshtml.g.cs
+C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Views\Orders\Index.cshtml.g.cs
+C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Views\Orders\ShoppingCart.cshtml.g.cs
+C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\obj\Release\net5.0\Razor\Views\Shared\Components\ShoppingCartSummary\Default.cshtml.g.cs

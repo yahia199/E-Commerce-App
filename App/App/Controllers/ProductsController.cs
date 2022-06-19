@@ -14,7 +14,6 @@ using Azure.Storage.Blobs;
 using System.Configuration;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Http;
-using App.Models.ViweModel;
 
 namespace App.Controllers
 {
