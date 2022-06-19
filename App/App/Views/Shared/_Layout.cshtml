@@ -31,9 +31,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="badge text-success" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                        <li class="nav-item">
-                            <a class="badge text-success" href="/CartRazor">My Cart</a>
-                        </li>
+
 
                         @if (!User.Identity.IsAuthenticated)
                         {
@@ -49,6 +47,11 @@
 }
 
                     </ul>
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
+
+
                 </div>
             </div>
         </nav>

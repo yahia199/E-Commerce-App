@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2B5D+vC+biIgbxyyakopWF/Rv10zqYxjdibCzoOnpPr4w8lHU2fGI0SMq8Ppt4WQTsfI3d2qD0cCv4ISaGhS6Q==",
+  "dgSpecHash": "gQggHuY34SvuZdVO0LZiL2fPia0Gz+lnPlZPIPH94WLTSyTQGbuYILoDiPXon6q4tzJmcTZ6drTxfSpCxdYDpQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\D-C\\Desktop\\MVC project\\E-Commerce-App\\App\\App\\App.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,7 @@
     "C:\\Users\\D-C\\.nuget\\packages\\microsoft.aspnetcore.responsecaching.abstractions\\2.2.0\\microsoft.aspnetcore.responsecaching.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\D-C\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.2.0\\microsoft.aspnetcore.routing.2.2.0.nupkg.sha512",
     "C:\\Users\\D-C\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\D-C\\.nuget\\packages\\microsoft.aspnetcore.session\\2.2.0\\microsoft.aspnetcore.session.2.2.0.nupkg.sha512",
     "C:\\Users\\D-C\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\D-C\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\D-C\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0\\microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",

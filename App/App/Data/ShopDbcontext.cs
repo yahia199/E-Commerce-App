@@ -17,6 +17,11 @@ namespace App.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> categories { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
+
         public ShopDbContext(DbContextOptions options) : base(options)
         {
 
@@ -42,6 +47,8 @@ namespace App.Data
 
             SeedRole(modelBuilder, "Administrator", "Administrator", "Editor");
             SeedRole(modelBuilder, "Editor", "Editor");
+            SeedRole(modelBuilder, "Customer");
+
 
         }
         private int nextId = 1; 

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using App.Models;
 using App.Models.Interfaces;
-using App.Models.ViweModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
