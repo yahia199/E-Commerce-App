@@ -1,6 +1,37 @@
-﻿<form method="post" action="/auth/SignUp">
+﻿@*<form method="post" action="/auth/SignUp">
     <input name="UserName" />
     <input name="Password" />
     <input name="Email" />
     <button type="submit">Signup</button>
-</form>
+</form>*@
+<section class="section-sign-up">
+    <div class="sign-up-card">
+        <div class="view">
+            <img src="https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+            <span class="check">
+                <i class="fas fa-check"></i>
+            </span>
+        </div>
+        <form  method="post" action="/auth/SignUp" class="form">
+            <div class="form-control">
+                <label for="name">Name:</label>
+                <input name="UserName" id="name" type="text">
+            </div>
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input name="Email" id="email" type="email">
+            </div>
+            <div class="form-control">
+                <label for="name">Password:</label>
+                <input name="Password" id="password" type="password">
+            </div>
+            <div class="form-control">
+                <button type="submit" class="btn-sign-up">Sign Up</button>
+            </div>
+            @*<div class="more">
+                <a class="forget-password-link" href="#">Forget password</a>
+                <a class="sign-in-link" href="#">Sign In</a>
+            </div>*@
+        </form>
+    </div>
+</section>

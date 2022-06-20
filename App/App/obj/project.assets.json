@@ -10677,19 +10677,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\D-C\\.nuget\\packages\\": {}
+    "C:\\Users\\LEGION\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\D-C\\Desktop\\MVC project\\E-Commerce-App\\App\\App\\App.csproj",
+      "projectUniqueName": "C:\\Users\\LEGION\\Source\\Repos\\E-Commerce-App\\App\\App\\App.csproj",
       "projectName": "App",
-      "projectPath": "C:\\Users\\D-C\\Desktop\\MVC project\\E-Commerce-App\\App\\App\\App.csproj",
-      "packagesPath": "C:\\Users\\D-C\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\D-C\\Desktop\\MVC project\\E-Commerce-App\\App\\App\\obj\\",
+      "projectPath": "C:\\Users\\LEGION\\Source\\Repos\\E-Commerce-App\\App\\App\\App.csproj",
+      "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LEGION\\Source\\Repos\\E-Commerce-App\\App\\App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\D-C\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

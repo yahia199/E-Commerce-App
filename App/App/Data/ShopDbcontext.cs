@@ -33,9 +33,9 @@ namespace App.Data
 
             modelBuilder.Entity<Category>().HasData(
               new Category { Id = 1, Name = "Beauty" },
-              new Category { Id = 2, Name = "Clothes" },
-              new Category { Id = 3, Name = "Mobiles" },
-              new Category { Id = 4, Name = "Computers & accessories" },
+              new Category { Id = 2, Name = "Clothes", ImgUrl= "https://images.pexels.com/photos/2872879/pexels-photo-2872879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+              new Category { Id = 3, Name = "Mobiles" , ImgUrl= "https://images.pexels.com/photos/207589/pexels-photo-207589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
+              new Category { Id = 4, Name = "Computers & accessories", ImgUrl= "https://images.pexels.com/photos/2253834/pexels-photo-2253834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" },
               new Category { Id = 5, Name = "TV & Home Entertainment" },
               new Category { Id = 6, Name = "Furniture" });
 

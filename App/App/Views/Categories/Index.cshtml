@@ -4,33 +4,92 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@*<h1>Index</h1>
 
-<p>
-    <a href="/categories/create">Create Category</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a href="/categories/edit/?id=@item.Id">Edit</a>
-                <a href="/categories/details/?id=@item.Id">Details</a>
-                <a href="/categories/delete/?id=@item.Id">Delete</a>
+    <p>
+        <a href="/categories/create">Create Category</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a href="/categories/edit/?id=@item.Id">Edit</a>
+                    <a href="/categories/details/?id=@item.Id">Details</a>
+                    <a href="/categories/delete/?id=@item.Id">Delete</a>
 
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
+
+@*<div id="category-index-style">
+    @foreach (var item in Model)
+    {
+        <img src="@item.ImgUrl">
+        <p>@item.Id </p>
+        <p>@item.Name</p>
+        <p>@item.ImgUrl  pla pla</p>
+
+        <a href="/categories/edit/?id=@item.Id">Edit</a>
+        <a href="/categories/details/?id=@item.Id">Details</a>
+        <a href="/categories/delete/?id=@item.Id">Delete</a>
+
+    }
+
+
+</div>*@
+
+<div id="category-index-style">
+
+
+    <div class="category-container">
+        <img src="https://images.pexels.com/photos/2872879/pexels-photo-2872879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+        <div class="links">
+            <a href="/categories/edit/?id=2">Edit</a>
+            <a href="/categories/details/?id=2">Details</a>
+            <a href="/categories/delete/?id=2">Delete</a>
+        </div>
+
+    </div>
+
+    <div class="category-container">
+        <img src="https://images.pexels.com/photos/207589/pexels-photo-207589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+
+        <div class="links">
+            <a href="/categories/edit/?id=3">Edit</a>
+            <a href="/categories/details/?id=3">Details</a>
+            <a href="/categories/delete/?id=3">Delete</a>
+        </div>
+
+    </div>
+
+    <div class="category-container">
+        <img src="https://images.pexels.com/photos/2253834/pexels-photo-2253834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+
+        <div class="links">
+
+            <a href="/categories/edit/?id=1">Edit</a>
+            <a href="/categories/details/?id=1">Details</a>
+            <a href="/categories/delete/?id=1">Delete</a>
+        </div>
+
+    </div>
+
+
+
+
+
+    </div>
