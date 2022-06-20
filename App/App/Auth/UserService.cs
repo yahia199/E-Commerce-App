@@ -33,7 +33,7 @@ namespace App.Auth
 
             if (result.Succeeded)
             {
-               // await _userManager.AddToRoleAsync(user, "Administrator");
+                //await _userManager.AddToRoleAsync(user, "Administrator");
                 await _userManager.AddToRoleAsync(user, "Customer");
 
                 return new UserDto

@@ -7,64 +7,101 @@
 }
 
 <h1>Index</h1>
-@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-{
-<p>
-    <a href="/products/create">Create New</a>
-</p>
-}
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+    {
+    <p>
+        <a href="/products/create">Create New</a>
+    </p>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageUrl)
 
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <img src=" @Html.DisplayFor(modelItem => item.ImageUrl) " width=200 />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Id)
-            </td>
-            <td>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <img src=" @Html.DisplayFor(modelItem => item.ImageUrl) " width=200 />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Id)
+                </td>
+                <td>
 
-                <a href="/products/details/?id=@item.Id">Details</a>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                {
-                <a href="/products/edit/?id=@item.Id">Edit</a>
-                <a href="/products/delete/?id=@item.Id">Delete</a>
-                } @if (User.Identity.IsAuthenticated && User.IsInRole("Customer")){
+                    <a href="/products/details/?id=@item.Id">Details</a>
 
-                <a href="/Orders/AddItemToShoppingCart/?id=@item.Id">Add</a>}
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                    <a href="/products/edit/?id=@item.Id">Edit</a>
+                    <a href="/products/delete/?id=@item.Id">Delete</a>
+                    }
 
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer")){
+
+                    <a href="/Orders/AddItemToShoppingCart/?id=@item.Id">Add</a>}
+
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+    
+
+@*@foreach(var item in Model)
+            {
+
+<div class="a-box">
+    <div class="img-container">
+        <div class="img-inner">
+            <div class="inner-skew">
+                <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+            </div>
+        </div>
+    </div>
+    <div class="text-container">
+        <h3> @Html.DisplayFor(modelItem => item.Name)</h3>
+        <div>
+            Price: @Html.DisplayFor(modelItem => item.Price)
+            Description: @Html.DisplayFor(modelItem => item.Description)
+
+        </div>
+    </div>
+    <a href="/products/details/?id=@item.Id">Details</a>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+    {
+        <a href="/products/edit/?id=@item.Id">Edit</a>
+        <a href="/products/delete/?id=@item.Id">Delete</a>
+    }
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+    {
+
+        <a href="/Orders/AddItemToShoppingCart/?id=@item.Id">Add</a>}
+</div>
+   }*@
