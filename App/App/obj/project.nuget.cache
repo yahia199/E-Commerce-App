@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gYtHDl3kFaHuHM4+iaAYiaYwGTBbjJXy3glPW5XcE+ujlDWAOUt19rNFPp98HCBD4ApdUxlSjWQ4FzVqiKAkIA==",
+  "dgSpecHash": "YfL5+AYL6HvS2nm6JQLVMSLS7XfH1BgU2LZ9PiMCkLvcmjbuWMVfHi/WOYwqj/ZoDns4X1DkIWSZfO6LswrnPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LEGION\\source\\repos\\E-Commerce-App\\App\\App\\App.csproj",
+  "projectFilePath": "C:\\Users\\LEGION\\Source\\Repos\\E-Commerce-App\\App\\App\\App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LEGION\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\azure.storage.blobs\\12.12.0\\azure.storage.blobs.12.12.0.nupkg.sha512",

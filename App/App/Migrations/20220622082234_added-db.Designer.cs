@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20220620152350_add-db")]
-    partial class adddb
+    [Migration("20220622082234_added-db")]
+    partial class addeddb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,35 +107,20 @@ namespace App.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Beauty"
-                        },
-                        new
-                        {
-                            Id = 2,
                             ImgUrl = "https://images.pexels.com/photos/2872879/pexels-photo-2872879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                             Name = "Clothes"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = 2,
                             ImgUrl = "https://images.pexels.com/photos/207589/pexels-photo-207589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                             Name = "Mobiles"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 3,
                             ImgUrl = "https://images.pexels.com/photos/2253834/pexels-photo-2253834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                            Name = "Computers & accessories"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "TV & Home Entertainment"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Furniture"
+                            Name = "Beauty"
                         });
                 });
 
@@ -218,27 +203,84 @@ namespace App.Migrations
                     b.HasData(
                         new
                         {
+                            Id = 1,
+                            CategoryId = 2,
+                            Description = "Huge camera upgrades. New OLED display with ProMotion. Fastest smartphone chip ever. Breakthrough battery life.",
+                            ImageUrl = "https://images.pexels.com/photos/9867096/pexels-photo-9867096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            Name = "Iphone 13",
+                            Price = 1000
+                        },
+                        new
+                        {
                             Id = 2,
                             CategoryId = 2,
-                            Description = "Test 2",
-                            Name = "Toy",
-                            Price = 100
+                            Description = "Introducing Galaxy S22; The First Smartphone To Feature Corning® Gorilla® Glass Victus®+ Nightography Camera, Storage To Hold All Your Night Shots ",
+                            ImageUrl = "https://images.pexels.com/photos/11772525/pexels-photo-11772525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                            Name = "Samsung s 22",
+                            Price = 850
                         },
                         new
                         {
                             Id = 3,
-                            CategoryId = 3,
-                            Description = "Test 3",
-                            Name = "Tshirt",
-                            Price = 10
+                            CategoryId = 2,
+                            Description = "The HUAWEI Mate 30 Pro features the Kirin 990 chipset and new EMUI10 for enhanced speed and performance.",
+                            ImageUrl = "https://fscl01.fonpit.de/userfiles/7043987/image/Huawei-Mate-30-Pro/AndroidPIT-huawei-mate-30-pro-mai_n-camera.jpg",
+                            Name = "Huawei Mate 30 pro",
+                            Price = 750
                         },
                         new
                         {
                             Id = 4,
-                            CategoryId = 4,
-                            Description = "Test 4",
-                            Name = "Shoes",
-                            Price = 20
+                            CategoryId = 1,
+                            Description = "Men Ripped Washed Denim Jacket",
+                            ImageUrl = "https://img.ltwebstatic.com/images3_pi/2021/12/17/1639709464654c7e2ed215d07ed68c62c719249af2_thumbnail_900x.webp",
+                            Name = "Jacket",
+                            Price = 30
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 1,
+                            Description = "Men Ripped Frayed Skinny Jeans",
+                            ImageUrl = "https://img.ltwebstatic.com/images3_pi/2021/11/01/1635759829f30e9606b61a22b3c8b9b314d6425fb6_thumbnail_900x.webp",
+                            Name = "Jeans",
+                            Price = 15
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 1,
+                            Description = "Men Button Front Solid Shirt",
+                            ImageUrl = "https://img.ltwebstatic.com/images3_pi/2022/03/21/164785138330ce413b577106f77813e7b87489d507_thumbnail_900x.webp",
+                            Name = "Shirt",
+                            Price = 750
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 3,
+                            Description = "SHEGLAM Wing It Waterproof Liner Duo - Black",
+                            ImageUrl = "https://img.ltwebstatic.com/images3_pi/2020/11/04/160448388566cbde6e32739ed3613a2039882cd1ce_thumbnail_900x.webp",
+                            Name = "Eyeliner",
+                            Price = 5
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 3,
+                            Description = "SHEGLAM Smart Cookie Palette",
+                            ImageUrl = "https://img.ltwebstatic.com/images3_pi/2022/03/16/16474155697760b39c9ccd0cfbc395963be1a0605f_thumbnail_900x.webp",
+                            Name = "Eyeshadow",
+                            Price = 10
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 3,
+                            Description = " Long Lasting Breathable Matte Foundation-Fair",
+                            ImageUrl = "https://img.ltwebstatic.com/images3_pi/2022/03/16/1647408191a4e2d4e9b275a0439d296b96389b68ea_thumbnail_900x.webp",
+                            Name = "Foundation",
+                            Price = 15
                         });
                 });
 
