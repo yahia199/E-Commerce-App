@@ -34,6 +34,7 @@ namespace App
             services.AddTransient<ICategory, CategoryServices>();
             services.AddTransient<IOrder, OrdersService>();
             services.AddScoped<ShoppingCart>();
+            services.AddScoped<EmailService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<ShopDbContext>(options =>
             {
