@@ -368,3 +368,5 @@ C:\Users\LEGION\Source\Repos\E-Commerce-App\App\App\obj\Release\net5.0\App.pdb
 C:\Users\LEGION\Source\Repos\E-Commerce-App\App\App\obj\Release\net5.0\App.genruntimeconfig.cache
 C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\bin\Release\net5.0\SendGrid.dll
 C:\Users\D-C\Desktop\MVC project\E-Commerce-App\App\App\bin\Release\net5.0\StarkbankEcdsa.dll
+C:\Users\LEGION\Source\Repos\E-Commerce-App\App\App\bin\Release\net5.0\SendGrid.dll
+C:\Users\LEGION\Source\Repos\E-Commerce-App\App\App\bin\Release\net5.0\StarkbankEcdsa.dll
