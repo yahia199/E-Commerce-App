@@ -29,9 +29,7 @@
                     @Html.DisplayNameFor(model => model.ImageUrl)
 
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Category)
-                </th>
+               
             </tr>
         </thead>
         <tbody>
@@ -43,7 +41,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
-                <td>
+                <td class="text-black-50">
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
@@ -52,21 +50,25 @@
                 @*<td>
                     @Html.DisplayFor(modelItem => item.Category.Id)
                 </td>*@
-                <td>
+            <td class="btn-group">
 
-                    <a href="/products/details/?id=@item.Id">Details</a>
+                <a asp-controller="products" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-info-circle"></i></a>
 
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                    {
-                    <a href="/products/edit/?id=@item.Id">Edit</a>
-                    <a href="/products/delete/?id=@item.Id">Delete</a>
-                    }
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                {
 
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer")){
+                    <a asp-controller="products" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                    <a asp-controller="products" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
 
-                    <a href="/Orders/AddItemToShoppingCart/?id=@item.Id">Add</a>}
+                }
 
-                </td>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+
+                {
+                <a asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart4"></i></a>
+                }
+
+            </td>
             </tr>
     }
         </tbody>

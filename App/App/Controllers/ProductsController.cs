@@ -211,6 +211,22 @@ namespace App.Controllers
 
             return Redirect(urlAnterior);
         }
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allProducts = await _product.GetProducts();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filteredResultNew = allProducts.Where(y => y.Name.Contains(searchString)).ToList();
+
+                return View("Index", filteredResultNew);
+            }
+
+            return View("Index", allProducts);
+        }
+
+
+
 
 
 

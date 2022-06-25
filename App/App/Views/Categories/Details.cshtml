@@ -7,9 +7,22 @@
 }
 
 <h1>Details</h1>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+
+{
+
+    <a asp-controller="categories" asp-action="Delete" asp-route-id="@Model.Id"><i class="bi bi-trash"></i></a>
+
+}
+@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator") || User.IsInRole("Editor"))
+{
+
+    <a asp-controller="categories" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi bi-pencil-square"></i></a>
+
+}
+
 
 <div>
-    <h4>Category</h4>
     <hr />
     @*<dl class="row">
             <dt class="col-sm-2">
@@ -45,6 +58,9 @@
                 <th>
                     Image
                 </th>
+                <th>
+
+                </th>
 
             </tr>
         </thead>
@@ -60,9 +76,15 @@
                     </td>
 
                     <td>
-                        <img src="@item.ImageUrl" width=200 />
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=200 />
 
 
+                    </td>
+                    <td>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+                        {
+                            <a asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart4"></i></a>
+                        }
                     </td>
                     @*@if (item.Name == "Iphone 13")
                         {

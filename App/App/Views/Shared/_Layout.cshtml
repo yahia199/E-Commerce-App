@@ -23,36 +23,44 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                             <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item">
                             <a asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a  asp-area="" asp-controller="Categories" asp-action="Index">Categories</a> 
+                            <a asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
 
 
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                        <li class="nav-item">
-                             <a asp-area="" asp-controller="Auth" asp-action="SignUp">SignUp</a>
-                        </li>
- }
+
+
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Auth" asp-action="SignUp">SignUp</a>
+                            </li>
+                        }
                         else
                         {
-                        <li class="nav-item">
-                            <a class="badge text-danger" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
-                        </li>
-}
-
-                    </ul>
-                    <ul class="navbar-nav">
-                        @await Component.InvokeAsync("ShoppingCartSummary")
-                    </ul>
+                            <li class="nav-item">
+                                <a class="badge text-danger" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
+                        }
 
 
-                </div>
+                        </ul>
+                    <form class="form-inline my-2 my-lg-0" asp-controller="products" asp-action="Filter" style="padding-right: 25px;">
+                            <input width="10" name="searchString" type="text" class="form-control" placeholder="Search for a Product..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+
+                        <ul class="navbar-nav">
+                            @await Component.InvokeAsync("ShoppingCartSummary")
+                        </ul>
+
+
+                    </div>
             </div>
         </nav>
     </header>
