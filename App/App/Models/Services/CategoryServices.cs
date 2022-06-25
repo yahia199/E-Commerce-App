@@ -60,7 +60,8 @@ namespace App.Models.Services
                  {
                      Id = a.Id,
                      Name = a.Name,
-                     Price = a.Price
+                     Price = a.Price,
+                     ImageUrl = a.ImageUrl
                  }).ToList()
             }).FirstOrDefaultAsync(x => x.Id==id);
             

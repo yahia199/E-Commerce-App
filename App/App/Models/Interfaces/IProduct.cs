@@ -13,5 +13,6 @@ namespace App.Models.Interfaces
         Task<Product> UpdateProduct(Category category, Product product);
         Task Delete(int id);
 
+
     }
 }
