@@ -11,25 +11,150 @@
 <div>
     <h4>Category</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        @foreach (var item in Model.Products)
-        {
+    @*<dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => item.Name)
+                @Html.DisplayFor(model => model.Name)
             </dd>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => item.Price)
-            </dd>
-        }
-    </dl>
+            @foreach (var item in Model.Products)
+            {
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Name)
+                </dd>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Price)
+                </dd>
+            }
+        </dl>*@
+
+
+    @*////////////////////////////////*@
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Image
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+
+                    <td>
+                        <img src="@item.ImageUrl" width=200 />
+
+
+                    </td>
+                    @*@if (item.Name == "Iphone 13")
+                        {
+                            <td>
+                                <img src="https://images.pexels.com/photos/9867096/pexels-photo-9867096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width=200 />
+
+
+                            </td>
+                        }
+                        else if (item.Name == "Samsung s 22")
+                        {
+
+                            <td>
+                                <img src="https://images.pexels.com/photos/11772525/pexels-photo-11772525.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width=200 />
+
+
+
+
+                            </td>
+                        }
+                        else if (item.Name == "Huawei Mate 30 pro")
+                        {
+
+                            <td>
+                                <img src="https://fscl01.fonpit.de/userfiles/7043987/image/Huawei-Mate-30-Pro/AndroidPIT-huawei-mate-30-pro-mai_n-camera.jpg" width=200 />
+
+
+
+
+                            </td>
+                        }
+                        else if (item.Name == "Jacket")
+                        {
+
+                            <td>
+                                <img src="https://img.ltwebstatic.com/images3_pi/2021/12/17/1639709464654c7e2ed215d07ed68c62c719249af2_thumbnail_900x.webp" width=200 />
+
+                            </td>
+                        }
+
+                        else if (item.Name == "Jeans")
+                        {
+
+                            <td>
+                                <img src="https://img.ltwebstatic.com/images3_pi/2021/11/01/1635759829f30e9606b61a22b3c8b9b314d6425fb6_thumbnail_900x.webp" width=200 />
+
+                            </td>
+                        }
+                        else if (item.Name == "Shirt")
+                        {
+
+                            <td>
+                                <img src="https://img.ltwebstatic.com/images3_pi/2022/03/21/164785138330ce413b577106f77813e7b87489d507_thumbnail_900x.webp" width=200 />
+
+                            </td>
+                        }
+
+                        else if (item.Name == "Eyeliner")
+                        {
+
+                            <td>
+                                <img src="https://img.ltwebstatic.com/images3_pi/2020/11/04/160448388566cbde6e32739ed3613a2039882cd1ce_thumbnail_900x.webp" width=200 />
+
+                            </td>
+                        }
+                        else if (item.Name == "Eyeshadow")
+                        {
+
+                            <td>
+                                <img src="https://img.ltwebstatic.com/images3_pi/2022/03/16/16474155697760b39c9ccd0cfbc395963be1a0605f_thumbnail_900x.webp" width=200 />
+
+                            </td>
+                        }
+                        else if (item.Name == "Foundation")
+                        {
+
+                            <td>
+                                <img src="https://img.ltwebstatic.com/images3_pi/2022/03/16/1647408191a4e2d4e9b275a0439d296b96389b68ea_thumbnail_900x.webp" width=200 />
+
+                            </td>
+                        }*@
+
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*//////////////////////////////////*@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
