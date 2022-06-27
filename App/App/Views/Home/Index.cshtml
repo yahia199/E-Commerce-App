@@ -5,9 +5,16 @@
     <img class="mySlides" src="https://images.pexels.com/photos/2253834/pexels-photo-2253834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
     <img class="mySlides" src="https://images.pexels.com/photos/2872879/pexels-photo-2872879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 
+    @if (User.Identity.IsAuthenticated)
+            {
+
+            }
+            else
+            {
+<a href="/auth/Index">Login</a>
+            }
 
 
-    <a href="/auth/Index">Login</a>
 
 </div>
 
